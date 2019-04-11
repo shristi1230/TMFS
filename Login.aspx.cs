@@ -13,7 +13,7 @@ public partial class Login : System.Web.UI.Page
     MySqlConnection con;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["userLoggedIn"] != "")
+        if (Session["userLoggedIn"] != null)
         {
             Response.Redirect("Default.aspx");
         }
@@ -27,7 +27,7 @@ public partial class Login : System.Web.UI.Page
         if (login(Email, Password))
         {
             Session["userLoggedIn"] = getName(Email);
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Dashboard.aspx");
         }
         else
         {

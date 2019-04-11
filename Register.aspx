@@ -44,7 +44,8 @@
                 </div>
     <asp:Button Text="Register Now" runat="server" ID="registerButton" 
         class="btn btn-outline-info" onclick="registerButton_Click" />
-    <asp:Button Text="Reset" runat="server" class="btn btn-outline-danger ml-5" /><asp:Label
-        ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:Button Text="Reset" runat="server" class="btn btn-outline-danger ml-5" />
+    <small class="text-danger d-block"><asp:Label
+        ID="Label1" runat="server" Text=""></asp:Label></small>
     </form>
 </asp:Content>
