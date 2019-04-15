@@ -3,9 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<form id="invest_form" runat="server" class="p-5">
     <div class="container">
     <div class="row">
-        <div class="p-4 ml-auto"><span>Welcome, <% Response.Write(Session["userLoggedIn"]); %></span></div>
+        <div class="p-4 ml-auto"><span>Welcome, <% Response.Write(Session["userLoggedIn"]); %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button Text="Log out" runat="server" class="btn btn-primary" 
+                id="BtnLogout" onclick="BtnLogout_Click" /></span></div>
     </div>
 </div>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -31,7 +34,7 @@
                             Risk
                         </h1>
                         <p class="card-text text-center">
-                            Low
+                            <asp:Label Text="" ID="risk_level" runat="server" />
                         </p>
                     </div>
                 </div>
@@ -43,7 +46,7 @@
                             Tenure
                         </h1>
                         <p class="card-text text-center">
-                            25 yrs
+                            <asp:Label Text="" ID="tenure" runat="server" /> years
                         </p>
                         </div>
                 </div>
@@ -79,7 +82,8 @@
                             SIP Amount
                         </h1>
                         <p class="card-text text-center">
-                            2500 Rs.
+                            Rs 
+                            <asp:Label Text="" ID="amt" runat="server" />
                         </p>
                     </div>
                 </div>
@@ -103,23 +107,25 @@
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     
 <fieldset>
-    <form id="invest_form" runat="server" class="p-5">
+    
     <h1 class="display-5 text-center">Invest Now
     </h1>
         <div class="form-group"><label for="Risk">Risk</label>
             <asp:TextBox runat="server" id="risk" readonly class="form-control" />
         </div>
         <div class="form-group"><label for="sip">SIP</label>
-            <asp:TextBox runat="server" id="sip" readonly class="form-control" />
+            <asp:TextBox runat="server" id="sip" type="number" readonly class="form-control" />
         </div>
         <div class="form-group"><label for="month">Month</label>
             <asp:TextBox runat="server" id="month" readonly class="form-control" />
         </div>
-    <asp:Button Text="Pay Now" ID="investButton" class="btn btn-outline-primary" runat="server" />
-    </form>
+    <asp:Button Text="Pay Now" ID="investButton" class="btn btn-outline-primary" 
+        runat="server" onclick="investButton_Click" />
+    
 </fieldset>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
 </div>
+</form>
 </asp:Content>
 

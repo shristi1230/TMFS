@@ -27,6 +27,7 @@ public partial class Login : System.Web.UI.Page
         if (login(Email, Password))
         {
             Session["userLoggedIn"] = getName(Email);
+            Session["email"] = Email;
             Response.Redirect("Dashboard.aspx");
         }
         else
